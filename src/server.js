@@ -57,7 +57,7 @@ app.post('/compress', upload.single('image'), async (req, res) => {
       fs.unlinkSync(req.file.path);
   
       // Constructing the full download link
-      const baseUrl = `${req.protocol}://${req.get('host')}/optimized/${path.basename(outputPath)}`;
+      const baseUrl = `${req.protocol}://${req.get('host')}/download/${path.basename(outputPath)}`;
       console.log("Output Path:", outputPath);
       console.log("Download Link:", baseUrl);
       
@@ -68,6 +68,21 @@ app.post('/compress', upload.single('image'), async (req, res) => {
     }
   });
   
+
+
+  app.get('/download/:filename', (req, res) => {
+    const filename = req.params.filename;
+    const filePath = path.join(__dirname, 'optimized', filename);
+  
+    res.download(filePath, (err) => {
+      if (err) {
+        console.error("Error downloading file:", err);
+        res.status(404).send("File not found");
+      }
+    });
+  });
+  
+
 
 // Start the server
 app.listen(port, () => {
