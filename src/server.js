@@ -8,7 +8,9 @@ const fs = require('fs');
 const app = express();
 const port = 5000;
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://compressly.netlify.app'
+}));
 app.use(express.static('public')); // Serve static frontend files from 'public'
 app.use('/optimized', express.static(path.join(__dirname, 'optimized'))); // Serve optimized images
 
