@@ -59,7 +59,8 @@ app.post('/compress', upload.single('image'), async (req, res) => {
       fs.unlinkSync(req.file.path);
   
       // Constructing the full download link
-      const baseUrl = `${req.protocol}://${req.get('host')}/download/${path.basename(outputPath)}`;
+      // const baseUrl = `${req.protocol}://${req.get('host')}/download/${path.basename(outputPath)}`;
+      const baseUrl = `https://${req.get('host')}/download/${path.basename(outputPath)}`;
       console.log("Output Path:", outputPath);
       console.log("Download Link:", baseUrl);
       
