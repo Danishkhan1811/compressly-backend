@@ -39,18 +39,18 @@ To set up the Image Compression API locally, follow these steps:
 
 ## API Endpoints
 POST /compress: Uploads an image for compression.
-- Request Body: Form data with image, compressionLevel, format, width, and height.
+   - Request Body: Form data with image, compressionLevel, format, width, and height.
 GET /download/:filename: Downloads the compressed image.
-- URL Parameter: filename - The name of the compressed image file.
+   - URL Parameter: filename - The name of the compressed image file.
 
-  ## Example
-  Example using curl
-  ```bash
-    curl -X POST http://localhost:5000/compress \
-      -F "image=@path/to/your/image.jpg" \
-      -F "compressionLevel=80" \
-      -F "format=jpeg" \
-      -F "width=800"
+     ## Example
+     Example using curl
+     ```bash
+       curl -X POST http://localhost:5000/compress \
+         -F "image=@path/to/your/image.jpg" \
+         -F "compressionLevel=80" \
+         -F "format=jpeg" \
+         -F "width=800"
 
 Downloading the Compressed Image
 After successfully compressing an image, you will receive a JSON response containing a download link:
