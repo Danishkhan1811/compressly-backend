@@ -38,9 +38,9 @@ To set up the Image Compression API locally, follow these steps:
    npm start
 
 ## API Endpoints
-## POST /compress: Uploads an image for compression.
+POST /compress: Uploads an image for compression.
 - Request Body: Form data with image, compressionLevel, format, width, and height.
-## GET /download/:filename: Downloads the compressed image.
+GET /download/:filename: Downloads the compressed image.
 - URL Parameter: filename - The name of the compressed image file.
 
   ## Example
